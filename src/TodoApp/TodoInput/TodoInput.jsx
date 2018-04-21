@@ -19,6 +19,9 @@ class TodoInput extends Component {
 
   addTodo(){
     this.props.addTodo(this.state.text);
+    this.setState({
+      text:''
+    });
     this.inputRef.value = '';
   }
 
