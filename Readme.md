@@ -29,7 +29,7 @@ Firstly, I used ReactJS because that's what the test was supposed to be about: R
 After that, to build a todo app all that was needed was just a basic webpack configuration to bundle everything. I transpiled/compiled the code with Babel and opted to use the *transform-object-rest-spread* babel plugin because it makes mapping objects way easier.
 
 #### ExpressJS
-To set up a quick server that whoever downloads and tries to run this todo app can run easily, I used Express and just made a short script that serves the static files needed for the application to run
+To set up a quick server that whoever downloads this todo app can run easily, I used Express and just made a short script that serves the static files needed for the application to run locally in port 3000
 
 #### Git
 Version control
