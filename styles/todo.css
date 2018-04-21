@@ -16,6 +16,10 @@
   position: relative;
 }
 
+.todo.done .text{
+  opacity: 0.3;
+}
+
 .text{
   width: 90%;
 }
