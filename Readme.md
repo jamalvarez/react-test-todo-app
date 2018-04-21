@@ -4,7 +4,7 @@ Jesus Marin's React Test
 
 ## How to run the app
 
-To build the app, run
+To build the app, first install everything with **npm install** and then run
 >**npm run build**
 
 in the terminal
