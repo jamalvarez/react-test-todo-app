@@ -24,13 +24,23 @@
   width: 90%;
 }
 
-.checkbox{
+.text h2{
+  padding-left: 10px;
+}
+
+.toggle-button{
+  cursor: pointer;
   height: 100%;
-  width: 10%;
+  width: 15%;
+  background-color:grey;
+  text-align:center;
+}
+.todo.done .toggle-button{
   background-color: green;
 }
 
 .remove{
+  cursor: pointer;
   position: absolute;
   left: 102%;
   background-color:red;
