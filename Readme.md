@@ -36,6 +36,6 @@ Version control
 
 
 #### Why not use Redux/other stuff/etc
-For a simple todo app there was no need to use any other thing, really! State can perfectly be managed with the component's own state here as there wasn't much state going around and, if anything, for a project of this size using more than the basic stuff could actually have been detrimental to the goal of finishing the test in time.
+For a simple todo app there was no need to use any other thing, really! State can perfectly be managed with the components' own state here as there wasn't much state going around and, if anything, for a project of this size using more than the basic stuff could actually have been detrimental to the goal of finishing the test in time.
 
 
