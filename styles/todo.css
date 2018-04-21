@@ -34,6 +34,7 @@
   cursor: pointer;
   align-self: stretch;
   width: 15%;
+  min-width: 87px;
   background-color:grey;
   text-align:center;
   display: flex;
@@ -60,6 +61,7 @@
 
 .input-container{
   width: 40vw;
+  min-width:272px;
   display: flex;
   justify-content: center;
   align-items: center;
