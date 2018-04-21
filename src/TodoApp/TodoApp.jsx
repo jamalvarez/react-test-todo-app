@@ -8,13 +8,25 @@ class TodoApp extends Component {
     super();
     this.state = {
       todoArray: [],
-      appliedFilters: [],
+      filterArray: [
+        {
+          name:'Pending',
+          filteringValue: false,
+          active: false
+        },
+        {
+          name: 'Done',
+          filteringValue: true,
+          actve: false
+        }
+      ],
       allTimeTodos: 0
     };
 
     this.addTodo = this.addTodo.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
+    this.toggleFilter = this.toggleFilter.bind(this);
   }
 
   addTodo(todoText){
@@ -54,14 +66,41 @@ class TodoApp extends Component {
       })
     }
   }
+  toggleFilter(toggleName){
+    return () => {
+      const modifiedFilters = this.state.filterArray.map((filter) =>(
+        {
+          ...filter,
+          active: toggleName === filter.name ? !filter.active : filter.active
+        }
+      ))
+      this.setState({
+        filterArray:modifiedFilters
+      });
+    }
+  }
 
   render(){
+    const activeFilters = this.state.filterArray.filter(x => x.active);
+    const appliedAllFilters = activeFilters.length === this.state.filterArray.length;
+    const filteredTodos = activeFilters && !appliedAllFilters ?
+    activeFilters.reduce((acc, filter) => {
+      const newTodoArray = acc.filter((todo) => {
+        return todo.done === filter.filteringValue
+      });
+      return newTodoArray;
+    }, this.state.todoArray)
+    : this.state.todoArray;
+    
+
     return(
       <div className='todo-app'>
-        <TodoInput addTodo={this.addTodo}/>
-        <TodoFilters />
+        <TodoInput addTodo={this.addTodo} />
+        <TodoFilters
+          filterArray={this.state.filterArray}
+          toggleFilter={this.toggleFilter}/>
         <TodoList
-          todoArray={this.state.todoArray}
+          todoArray={filteredTodos}
           toggleFunction={this.toggleTodo}
           removeFunction={this.removeTodo}/>
       </div>

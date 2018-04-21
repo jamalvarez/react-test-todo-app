@@ -7,7 +7,7 @@ const Todo = ({ todo, toggle, remove }) => {
         <h2>{todo.text}</h2>
       </div>
         <div className='checkbox' onClick={toggle}>
-          <input type='checkbox'/>
+          <input type='checkbox' checked={todo.done}/>
       </div>
       <div className='remove' onClick={remove}>
         <span>Remove</span>

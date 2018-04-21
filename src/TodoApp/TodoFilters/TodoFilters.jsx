@@ -1,11 +1,16 @@
 import React from 'react';
 
-const TodoFilters = () => {
+const TodoFilters = ({filterArray, toggleFilter}) => {
+  const filters = filterArray.map((filter) => {
+    return <div className='filter'>
+    <input  name={filter.name} type='checkbox' checked={filter.active} onClick={toggleFilter(filter.name)}/>
+    {filter.name}
+    </div>
+  });
   return (
     <div className='filters'>
       <span>Filter by:</span>
-      <div className='filter'><input type='checkbox' />Pending</div>
-      <div className='filter'><input type='checkbox' />Done</div>
+      {filters}
     </div>
   )
 }
