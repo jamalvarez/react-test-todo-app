@@ -1,0 +1,70 @@
+.todo-app{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 100px 200px;
+}
+
+.todo{
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  width: 40vw;
+  align-items: center;
+  margin-top:20px;
+  position: relative;
+}
+
+.text{
+  width: 90%;
+}
+
+.checkbox{
+  height: 100%;
+  width: 10%;
+  background-color: green;
+}
+
+.remove{
+  position: absolute;
+  left: 102%;
+  background-color:red;
+  border-radius:2px;
+  padding:5px 10px;
+}
+
+.input-container{
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border:1px solid grey;
+  overflow: hidden;
+}
+.newtodo-input{
+  width: 90%;
+  padding: 0px 20px;
+  border-right: 1px solid grey;
+}
+.input-container input{
+  border: none;
+  height: 30px;
+  font-size: 1.5rem;
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  padding-right:0px;
+}
+
+.button-add{
+  cursor:pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  padding: 10px;
+  height: 30px;
+}
