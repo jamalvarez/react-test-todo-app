@@ -22,6 +22,8 @@
 
 .text{
   width: 90%;
+  overflow: scroll;
+  max-height: 200px;
 }
 
 .text h2{
@@ -30,11 +32,19 @@
 
 .toggle-button{
   cursor: pointer;
-  height: 100%;
+  align-self: stretch;
   width: 15%;
   background-color:grey;
   text-align:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+.toggle-button h2{
+  margin-top: 5px;
+}
+
 .todo.done .toggle-button{
   background-color: green;
 }

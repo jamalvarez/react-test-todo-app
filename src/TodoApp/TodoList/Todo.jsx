@@ -8,6 +8,7 @@ const Todo = ({ todo, toggle, remove }) => {
         <h2>{todo.text}</h2>
       </div>
         <div className='toggle-button' onClick={toggle}>
+          <span>Status:</span>
           <h2>{statusButtonText} </h2>
       </div>
       <div className='remove' onClick={remove}>
