@@ -29,18 +29,51 @@ class TodoApp extends Component {
     this.toggleFilter = this.toggleFilter.bind(this);
   }
 
-  addTodo(todoText){
-    const previousTodosAmount = this.state.allTimeTodos;
-    const newTodo = {
-      id: previousTodosAmount,
-      text:todoText,
-      done: false
-    }
-    const modifiedTodoArray = [...this.state.todoArray, newTodo];
-    this.setState({
-      todoArray: modifiedTodoArray,
-      allTimeTodos: previousTodosAmount + 1 
+  doBonus(){
+    const starshipsxhr = new XMLHttpRequest();
+
+    starshipsxhr.open('GET','https://swapi.co/api/starships/');
+
+    starshipsxhr.addEventListener('load',function(){
+      var response = JSON.parse(this.responseText);
+      var filteredResults = response.results.filter((spaceship)=> {
+          return spaceship.name.match(/Millennium Falcon/);
+      });
+      if(filteredResults[0]){
+          document.querySelector('footer').style.display='block';
+          var peopleUrlArray = filteredResults[0].pilots;
+          peopleUrlArray.forEach((url) => {
+              const peoplexhr = new XMLHttpRequest();
+                    peoplexhr.addEventListener('load', function(){
+                        const peopleInfo = JSON.parse(this.responseText);
+                        const newSpan = document.createElement('span');
+                        newSpan.textContent = peopleInfo.name;
+                        document.querySelector('footer').appendChild(newSpan);
+                    });
+                    peoplexhr.open('GET','https://swapi.co/api/people/'+url.match(/(\d+\/)$/)[1]);
+                    peoplexhr.send();
+          })
+      }
     })
+    starshipsxhr.send();
+  }
+
+  addTodo(todoText){
+    if(todoText === 'Use the force, Luke.'){
+      this.doBonus();
+    } else {
+      const previousTodosAmount = this.state.allTimeTodos;
+      const newTodo = {
+        id: previousTodosAmount,
+        text:todoText,
+        done: false
+      }
+      const modifiedTodoArray = [...this.state.todoArray, newTodo];
+      this.setState({
+        todoArray: modifiedTodoArray,
+        allTimeTodos: previousTodosAmount + 1 
+      })
+    }
   }
 
   toggleTodo(todoId){
